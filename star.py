@@ -34,8 +34,8 @@ for index, line in db.iterrows():
   else:
     ref_dir=ref_mouse
   if module=="fastq":
-    run("STAR --genomeDir %s --readFilesIn %s %s --readFilesCommand zcat --soloType CB UMI Simple --soloCBwhitelist %s --outFileNamePrefix %s" %
+    run("STAR --genomeDir %s --readFilesIn %s %s --readFilesCommand zcat --soloType CB_UMI_Simple --soloCBwhitelist %s --outFileNamePrefix %s" %
         (ref_dir, sample+"/"+files[1], sample+"/"+files[0], barcodes, sample), shell = True)
   else:
-    run("STAR --genomeDir %s --readFilesIn %s --readFilesType SAM SE --soloType CB UMI Simple --soloCBwhitelist %s --outFileNamePrefix %s" %
+    run("STAR --genomeDir %s --readFilesIn %s --readFilesType SAM_SE --soloType CB_UMI_Simple --soloCBwhitelist %s --outFileNamePrefix %s" %
         (ref_dir, sample+"/"+files[0], barcodes, sample), shell = True)
